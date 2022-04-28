@@ -14,11 +14,10 @@ include_directories(
   src
   )
 
+#-------------- SDL2 --------------#
+find_package(SDL2 REQUIRED)
+include_directories(${PROJECT_NAME} ${SDL2_INCLUDE_DIRS})
+#-------------- SDL2 --------------#
 
 add_executable(${PROJECT_NAME} ${SOURCES})
-
-#set_target_properties(
-#  ${PROJECT_NAME} PROPERTIES
-target_include_directories(${PROJECT_NAME} PUBLIC
-                           "${PROJECT_BINARY_DIR}"
-                           )
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
